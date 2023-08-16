@@ -1,0 +1,46 @@
+mode: test
+gpu_ids: [0]
+scale: 3 #todo
+run_range: 1
+# mask_training: null
+
+datasets:
+    test_HyperALiCB: #todo train datasets
+        setmode: LRHRRAM
+        data_type: .npy
+        data_root: ../HypersharpDataset/HyperALi_CommonBands/test/
+        scaledict:
+            LR: 1
+            REF: 3
+            GT: 3
+        img_range: 4095
+        LRdim: 120
+        REFdim: 9
+        noise: .
+
+    # test_HyperALiCB: #todo validation datasets
+    #     setmode: LRHRRAM
+    #     data_type: .npy
+    #     data_root: ../HypersharpDataset/HyperALi_CommonBands/valid/
+    #     scaledict:
+    #         LR: 1
+    #         REF: 3
+    #         GT: 3
+    #     img_range: 4095
+    #     LRdim: 120
+    #     REFdim: 9
+    #     batch_size: 8
+    #     n_workers: 4 
+    #     noise: .
+## hyper-parameters for network architecture
+networks:
+    net_arch: linear_transformer # this v alue must be same with the filename of 'your_network_name'.py
+    numLayers: 2
+    convDim: 120
+    numHeads: 4
+    patchSize: 1
+    poolSize: 4
+    ksize: 9
+    # learning_rate: 0.0002
+solver:
+    pretrained_path: experiments/Big/sst_denseRe_eqdim_P4L14H8D120/epochs/best_ckp.pth

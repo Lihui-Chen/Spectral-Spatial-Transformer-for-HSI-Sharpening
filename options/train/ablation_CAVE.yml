@@ -1,0 +1,55 @@
+mode: train
+gpu_ids: [0]
+scale: 4 #todo
+run_range: 1
+# mask_training: null
+
+datasets:
+    train_CAVE: #todo train datasets
+        setmode: LRHRRAM
+        data_type: .npy
+        n_workers: 4
+        repeat: 3
+        batch_size: 8   #todo:
+        patch_size: 18
+        use_flip: true
+        use_rot: true
+        noise: .
+
+    valid_CAVE: #todo validation datasets
+        setmode: LRHRRAM
+        data_type: .npy
+        batch_size: 4
+        n_workers: 4 
+        noise: .
+## hyper-parameters for network architecture
+networks:
+    net_arch: linear_transformer # this v alue must be same with the filename of 'your_network_name'.py
+    numLayers: 4
+    convDim: 120
+    numHeads: 4
+    patchSize: 1
+    poolSize: 4
+
+
+# the setting for optimizer, loss function, learning_strategy, etc.
+solver:
+    optimType: ADAM
+    learning_rate: 0.0002
+    lr_scheme: warm_up # warm_up or multisteplr
+    warmUpEpoch: 0 # for warm_up
+    lrStepSize: 200 # for multisteplr
+    weight_decay: null #todo: 0.0001
+    acuSteps: 1 #todo:
+    manual_seed: 0
+    num_epochs: 200
+    save_ckp_step: 1000
+    pretrain: null
+    pretrained_path: experiments/FinalAblation/3_base_conv_patchv2_transformer_B8P18_lr0002_warm_up/epochs/last_ckp.pth
+
+
+logger:
+    name: null
+    tags: [Ablation, CAVE] #ablation, Hyper
+    tag: null
+    log_dir: Ablation_study/

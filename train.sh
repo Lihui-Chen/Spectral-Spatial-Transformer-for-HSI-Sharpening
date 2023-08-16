@@ -1,0 +1,1 @@
+python train.py -net_arch sst -opt options/train/train_HyperALi_CB.yml -log_dir vscode_debug/ -setmode LRHRRAM -batch_size 8 -patch_size 18 -convDim 120 -patchSize 1 -numLayers 14 -poolSize 4 -numHeads 8 -lr_scheme warm_up -learning_rate 0.0002 -warmUpEpoch 0 -ksize 9

@@ -1,0 +1,7 @@
+Toolbox for the assessment of pansharpening algorithms tested on:
+Python 3.8.3
+
+Packages and versions:
+1) scipy (version: 1.4.1)
+2) numpy (version: 1.18.1)
+3) skimage (version: 0.16.2)
