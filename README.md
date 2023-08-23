@@ -1,4 +1,4 @@
-# Spatial-Data-Augmentation-4-Pansharpening
+# Spectral-Spatial-Transformer-for-HSI-Sharpening
 The official codes of "Spectral-spatial Transformer for Hyperspectral Image Sharpening" published in IEEE Transactions on Neural Networks and Learning Systems, 2023.
 
 
